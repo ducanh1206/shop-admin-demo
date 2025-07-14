@@ -26,17 +26,23 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Question</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="question" value="">
+                                                    <input class="form-control" type="text" name="question" value="{{ old('question') }}">
                                                 </div>
                                             </div>
+                                            @error('question')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Answer</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="answer" value="">
+                                                    <input class="form-control" type="text" name="answer" value="{{ old('answer') }}">
                                                 </div>
                                             </div>
-
+                                            @error('answer')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

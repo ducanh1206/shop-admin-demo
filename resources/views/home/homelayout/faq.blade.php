@@ -23,10 +23,4 @@
             </div>
         </div>
     @endforeach
-    </div>
-    
-    <div class="faq-btn" data-aos="fade-up" data-aos-duration="700">
-      <a class="lonyo-default-btn faq-btn2" href="faq.html">Contact Us</a>
-    </div>
-  </div>
 </div>

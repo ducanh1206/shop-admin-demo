@@ -21,6 +21,13 @@ class ReviewController extends Controller
 
     public function StoreReview (Request $request) {
 
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         if ($request->file('image')) {
             $image = $request->file('image');
             $manager = new ImageManager(new Driver());

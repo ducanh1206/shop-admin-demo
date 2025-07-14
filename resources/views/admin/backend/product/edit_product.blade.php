@@ -34,8 +34,10 @@
                                                     <input class="form-control" type="text" name="title" value="{{ $product->title }}">
                                                 </div>
                                             </div>
-                                            
-
+                                            @error('title')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Name</label>
                                                 <div class="col-lg-12 col-xl-12">

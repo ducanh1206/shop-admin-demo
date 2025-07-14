@@ -26,16 +26,22 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Name</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="name" value="">
+                                                    <input class="form-control" type="text" name="name" value="{{ old('name') }}">
                                                 </div>
                                             </div>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Position</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="position" value="">
+                                                    <input class="form-control" type="text" name="position" value="{{ old('position') }}">
                                                 </div>
                                             </div>
+                                            @error('position')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Message</label>
@@ -43,14 +49,20 @@
                                                     <textarea class="form-control" type="text" name="message" required=""></textarea>
                                                 </div>
                                             </div>
+                                            @error('message')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="">
+                                                    <input class="form-control" type="file" name="image" value="{{ old('image') }}">
                                                 </div>
                                             </div>
-
+                                            @error('image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

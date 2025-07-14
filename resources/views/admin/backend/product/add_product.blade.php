@@ -7,6 +7,7 @@
     @csrf
         <div class="card-body">
             
+            
                 <div class="tab-pane pt-4" id="profile_setting" role="tabpanel" aria-labelledby="setting_tab">
                     <div class="row">
 
@@ -22,35 +23,48 @@
                                         </div>
                                     </div>
                                     <form action="">
+                                        
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Title</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="title" value="">
+                                                    <input class="form-control" type="text" name="title" value="{{ old('title') }}">
                                                 </div>
                                             </div>
+                                            @error('title')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Name</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="name" value="">
+                                                    <input class="form-control" type="text" name="name" value="{{ old('name') }}">
                                                 </div>
                                             </div>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Price</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="price" value="">
+                                                    <input class="form-control" type="text" name="price" value="{{ old('price') }}">
                                                 </div>
                                             </div>
+                                            @error('price')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="">
+                                                    <input class="form-control" type="file" name="image" value="{{ old('image') }}">
                                                 </div>
                                             </div>
-
+                                            @error('image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

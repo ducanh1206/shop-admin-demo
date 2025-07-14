@@ -22,6 +22,13 @@ class ProductController extends Controller
 
     public function StoreProduct (Request $request) {
 
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         if ($request->file('image')) {
             $image = $request->file('image');
             $manager = new ImageManager(new Driver());
@@ -53,6 +60,12 @@ class ProductController extends Controller
 
 
     public function UpdateProduct (Request $request) {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
         $p_id = $request->id;
 

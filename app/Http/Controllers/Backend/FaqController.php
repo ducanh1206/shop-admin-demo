@@ -21,6 +21,11 @@ class FaqController extends Controller
 
     public function StoreFaq (Request $request) {
 
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string|max:255',
+        ]);
+
             // Create database
             Faq::create([
                     'question' => $request->question,
@@ -31,6 +36,7 @@ class FaqController extends Controller
     }
 
     public function EditFaq ($id) {
+        
         $faq = Faq::find($id);
         return view('admin.backend.faq.edit_faq', compact('faq'));
     }
