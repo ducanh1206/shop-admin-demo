@@ -44,6 +44,9 @@
                                                     <input class="form-control" type="text" name="name" value="{{ $product->name }}">
                                                 </div>
                                             </div>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Price</label>
@@ -51,14 +54,20 @@
                                                     <input class="form-control" type="text" name="price" value="{{ $product->price }}">
                                                 </div>
                                             </div>
+                                            @error('price')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="">
+                                                    <input class="form-control" type="file" name="image" value="{{ $product->image }}">
                                                 </div>
                                             </div>
-
+                                            @error('image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

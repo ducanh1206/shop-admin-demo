@@ -6,7 +6,7 @@
 
                         <div class="logo-box">
                             
-                            <a href="" class="logo logo-dark">
+                            <a href="{{ route('dashboard') }}" class="logo logo-dark">
                                 <span class="logo-sm" style="color: black">
                                     <img src="{{ asset('upload/adminicon.png') }}" alt="" height="22">
                                 </span>

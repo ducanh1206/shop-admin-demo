@@ -43,6 +43,10 @@ class FaqController extends Controller
 
 
     public function UpdateFaq (Request $request) {
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string|max:255',
+        ]);
 
         $p_id = $request->id;
 

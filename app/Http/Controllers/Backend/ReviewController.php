@@ -60,7 +60,12 @@ class ReviewController extends Controller
     }
 
     public function UpdateReview (Request $request) {
-
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'message' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
         $rev_id = $request->id;
 

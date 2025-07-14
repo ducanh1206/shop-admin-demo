@@ -24,16 +24,6 @@
                                         </div>
                                     </div>
                                     <form action="">
-
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul class="mb-0">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
                                          
                                         <div class="card-body">
                                             <div class="form-group mb-3 row">
@@ -42,7 +32,9 @@
                                                     <input class="form-control" type="text" name="question" value="{{ $faq->question }}">
                                                 </div>
                                             </div>
-                                            
+                                            @error('question')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             
 
                                             <div class="form-group mb-3 row">
@@ -51,8 +43,10 @@
                                                     <input class="form-control" type="text" name="answer" value="{{ $faq->answer }}">
                                                 </div>
                                             </div>
-                                            
-
+                                            @error('answer')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

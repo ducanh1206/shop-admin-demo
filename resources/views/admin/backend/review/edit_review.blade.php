@@ -31,6 +31,9 @@
                                                     <input class="form-control" type="text" name="name" value="{{ $review->name }}">
                                                 </div>
                                             </div>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Position</label>
@@ -38,13 +41,19 @@
                                                     <input class="form-control" type="text" name="position" value="{{ $review->position }}">
                                                 </div>
                                             </div>
+                                            @error('position')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Message</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <textarea class="form-control" type="text" name="message" value="" required="">{{ $review->message }}</textarea>
+                                                    <input class="form-control" type="text" name="message" value="{{ $review->message }}">
                                                 </div>
                                             </div>
+                                            @error('message')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
@@ -52,7 +61,10 @@
                                                     <input class="form-control" type="file" name="image" value="{{ $review->image }}">
                                                 </div>
                                             </div>
-
+                                            @error('image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>

@@ -46,7 +46,7 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Message</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <textarea class="form-control" type="text" name="message" required=""></textarea>
+                                                    <input class="form-control" type="text" name="message" value="{{ old('message') }}">
                                                 </div>
                                             </div>
                                             @error('message')
