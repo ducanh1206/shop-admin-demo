@@ -35,7 +35,7 @@ class ReviewController extends Controller
 
 
             // Create database
-            Review::validate([
+            Review::create([
                     'name' => $request->name,
                     'position' => $request->position,
                     'message' => $request->message,
