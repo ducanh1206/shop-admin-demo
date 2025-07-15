@@ -26,15 +26,15 @@
             <img src="{{asset('frontend/assets/images/shape/star.svg')}}" alt="">
           </div>
           <div class="lonyo-t-text">
-            <p>{{ $item->message }}</p>
+            <p style="word-break: break-word;">{{ Str::limit($item->message, '200', '...') }}</p>
           </div>
           <div class="lonyo-t-author">
             <div class="lonyo-t-author-thumb">
               <img src="{{ $item->image }}" alt="">
             </div>
             <div class="lonyo-t-author-data">
-              <p>{{ $item->name }}</p>
-              <span>{{ $item->position }}</span>
+              <p>{{ Str::limit($item->name, '15', '...') }}</p>
+              <span>{{ Str::limit($item->position, '30', '...') }}</span>
             </div>
           </div>
         </div>

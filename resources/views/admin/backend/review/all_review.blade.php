@@ -19,7 +19,8 @@
                     </div>
 
                     <div class="card-body">
-                        <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                        <div class="table-responsive">
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -37,7 +38,7 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ Str::limit($item->name, 50, '...') }}</td>
-                                        <td>{{ Str::limit($item->position), 50, '...' }}</td>
+                                        <td>{{ Str::limit($item->position), 30, '...' }}</td>
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:40px; height:40px;"></td>
                                         <td>{{ Str::limit($item->message, 50, '...') }}</td>
                                         <td>
@@ -50,6 +51,7 @@
 
                             </tbody>
                         </table>
+                        </div>
                     </div>
 
                 </div>

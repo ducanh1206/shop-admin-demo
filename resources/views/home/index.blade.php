@@ -6,5 +6,4 @@
   @include('home.homelayout.testimonial')
 
   @include('home.homelayout.faq')
-
 @endsection

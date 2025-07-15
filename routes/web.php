@@ -3,14 +3,12 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\FaqController;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 Route::get('/', function () {
     return view('home.index');
@@ -25,11 +23,6 @@ Route::get('/login', function () {
     return view('auth.login');
 })->middleware(['auth', 'verified'])->name('login');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__.'/auth.php';
 
@@ -43,10 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [AdminController::class, 'adminProfile'])->name('admin.profile');
 });
 
-// Review control routes
-Route::middleware('auth')->group(function () {
-    Route::controller(ReviewController::class)->group(function() {
 
+// Product control routes
+Route::middleware('auth')->group(function () {
+
+    // Review
+    Route::controller(ReviewController::class)->group(function() {
         Route::get('/all/Review', 'allReview')->name('all.review');
         Route::get('/add/Review', 'addReview')->name('add.review');
         Route::post('/store/Review', 'storeReview')->name('store.review');
@@ -54,10 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/Review', 'updateReview')->name('update.review');
         Route::get('/delete/Review/{id}', 'deleteReview')->name('delete.review');
     });
-});
-
-// Product control routes
-Route::middleware('auth')->group(function () {
+    //Product
     Route::controller(ProductController::class)->group(function() {
         Route::get('/all/Product', 'allProduct')->name('all.product');
         Route::get('/add/Product', 'addProduct')->name('add.product');
@@ -66,10 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/Product', 'updateProduct')->name('update.product');
         Route::get('/delete/Product/{id}', 'deleteProduct')->name('delete.product');
     });
-});
-
-// Faq control routes
-Route::middleware('auth')->group(function () {
+    // Faqs
     Route::controller(FaqController::class)->group(function() {
         Route::get('/all/Faq', 'allFaq')->name('all.faq');
         Route::get('/add/Faq', 'addFaq')->name('add.faq');
@@ -78,4 +67,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/Faq', 'updateFaq')->name('update.faq');
         Route::get('/delete/Faq/{id}', 'deleteFaq')->name('delete.faq');
     });
+});
+
+
+Route::get('/test-cloudinary', function () {
+    $upload = Cloudinary::upload(public_path('test.jpg'));
+    return $upload->getSecurePath();
 });
