@@ -23,7 +23,7 @@
                                             </div><!--end col-->                                                       
                                         </div>
                                     </div>
-                                    <form action="">
+
 
                                         
                                          
@@ -61,16 +61,21 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="{{ $product->image }}">
+                                                    <input class="form-control mb-2" type="file" name="image" value="{{ asset($product->image) }}">
+                                                    
+                                                    @if($product->image)
+                                                        <img src="{{ asset($product->image) }}" alt="Product Image" width="150">
+                                                    @endif
                                                 </div>
                                             </div>
                                             @error('image')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
+                                            
                                             <br>
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
-                                    </form>
+ 
                                 </div>
                             </div>
 

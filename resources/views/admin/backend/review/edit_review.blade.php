@@ -58,7 +58,11 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="{{ $review->image }}">
+                                                    <input class="form-control mb-2" type="file" name="image" value="{{ asset($review->image) }}">
+                                                    
+                                                    @if($review->image)
+                                                        <img src="{{ asset($review->image) }}" alt="Review Image" width="150">
+                                                    @endif
                                                 </div>
                                             </div>
                                             @error('image')
