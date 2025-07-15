@@ -40,7 +40,7 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Answer</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="text" name="answer" value="{{ $faq->answer }}">
+                                                    <textarea class="form-control" type="text" name="answer" value="" rows="5" spellcheck="false">{{ $faq->answer }}</textarea>
                                                 </div>
                                             </div>
                                             @error('answer')

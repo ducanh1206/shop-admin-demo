@@ -82,9 +82,12 @@
                                         </li>
                                     </ul>
                                 </div>
+                                
                             </li>
 
-                           
+                            <a href="{{ url('/') }}" target="_blank" class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-arrow-left me-2"></i> Back to Main Page
+                            </a>
 
                             
 

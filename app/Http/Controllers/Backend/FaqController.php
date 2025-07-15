@@ -22,8 +22,8 @@ class FaqController extends Controller
     public function storeFaq (Request $request) {
 
         $request->validate([
-            'question' => 'required|string|max:255',
-            'answer' => 'required|string|max:255',
+            'question' => 'required|string',
+            'answer' => 'required|string',
         ]);
 
             // Create database
@@ -44,8 +44,8 @@ class FaqController extends Controller
 
     public function updateFaq (Request $request) {
         $request->validate([
-            'question' => 'required|string|max:255',
-            'answer' => 'required|string|max:255',
+            'question' => 'required|string',
+            'answer' => 'required|string',
         ]);
 
         $p_id = $request->id;
@@ -60,6 +60,7 @@ class FaqController extends Controller
     }
 
     public function deleteFaq ($id) {
+        $item = Faq::find($id);
 
         $item->delete();
 
