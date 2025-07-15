@@ -7,20 +7,21 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
 class ProductController extends Controller
 {
-    public function AllProduct () {
+    public function allProduct () {
         $product = Product::latest()->get();
         return view('admin.backend.product.all_product', compact('product'));
     }
 
-    public function AddProduct () {
+    public function addProduct () {
         return view('admin.backend.product.add_product');
     }
 
-    public function StoreProduct (Request $request) {
+    public function storeProduct (Request $request) {
 
         $request->validate([
             'title' => 'required|string|max:255',
@@ -53,13 +54,13 @@ class ProductController extends Controller
         return redirect()->route('all.product');
     }
 
-    public function EditProduct ($id) {
+    public function editProduct ($id) {
         $product = Product::find($id);
         return view('admin.backend.product.edit_product', compact('product'));
     }
 
 
-    public function UpdateProduct (Request $request) {
+    public function updateProduct (Request $request) {
         $request->validate([
             'title' => 'required|string|max:255',
             'name' => 'required|string|max:255',
@@ -104,7 +105,7 @@ class ProductController extends Controller
      
     }
 
-    public function DeleteProduct ($id) {
+    public function deleteProduct ($id) {
         $item = Product::find($id);
         $image = $item->image;
 

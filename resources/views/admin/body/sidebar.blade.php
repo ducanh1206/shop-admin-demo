@@ -6,7 +6,7 @@
 
                         <div class="logo-box">
                             
-                            <a href="{{ route('dashboard') }}" class="logo logo-dark">
+                            <a href="{{ route('all.product') }}" class="logo logo-dark">
                                 <span class="logo-sm" style="color: black">
                                     <img src="{{ asset('upload/adminicon.png') }}" alt="" height="22">
                                 </span>
@@ -18,16 +18,16 @@
 
                         <ul id="side-menu">
 
-                            <li class="menu-title">Menu</li>
+                            {{-- <li class="menu-title">Menu</li>
 
                             <li>
                                 <a href="{{ route('dashboard') }}" class="tp-link">
                                     <i data-feather="home"></i>
                                     <span> Dashboard </span>
                                 </a>
-                            </li>
+                            </li> --}}
 
-                            <li class="menu-title">Pages</li>
+                            <li class="menu-title">Dashboard Pages</li>
 
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">

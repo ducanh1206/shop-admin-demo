@@ -10,16 +10,16 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class FaqController extends Controller
 {
-    public function AllFaq () {
+    public function allFaq () {
         $faq = Faq::latest()->get();
         return view('admin.backend.faq.all_faq', compact('faq'));
     }
 
-    public function AddFaq () {
+    public function addFaq () {
         return view('admin.backend.faq.add_faq');
     }
 
-    public function StoreFaq (Request $request) {
+    public function storeFaq (Request $request) {
 
         $request->validate([
             'question' => 'required|string|max:255',
@@ -35,14 +35,14 @@ class FaqController extends Controller
         return redirect()->route('all.faq');
     }
 
-    public function EditFaq ($id) {
+    public function editFaq ($id) {
         
         $faq = Faq::find($id);
         return view('admin.backend.faq.edit_faq', compact('faq'));
     }
 
 
-    public function UpdateFaq (Request $request) {
+    public function updateFaq (Request $request) {
         $request->validate([
             'question' => 'required|string|max:255',
             'answer' => 'required|string|max:255',
@@ -59,7 +59,7 @@ class FaqController extends Controller
      
     }
 
-    public function DeleteFaq ($id) {
+    public function deleteFaq ($id) {
 
         $item->delete();
 

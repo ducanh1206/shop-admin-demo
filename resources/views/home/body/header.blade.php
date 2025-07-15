@@ -18,7 +18,7 @@
             @auth
                 <div class="lonyo-header-info-content">
                     <ul>
-                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li><a href="{{ route('all.product') }}">Dashboard</a></li>
                     </ul>
                 </div>
               @else

@@ -10,16 +10,16 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class ReviewController extends Controller
 {
-    public function AllReview () {
+    public function allReview () {
         $review = Review::latest()->get();
         return view('admin.backend.review.all_review', compact('review'));
     }
 
-    public function AddReview () {
+    public function addReview () {
         return view('admin.backend.review.add_review');
     }
 
-    public function StoreReview (Request $request) {
+    public function storeReview (Request $request) {
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -54,12 +54,12 @@ class ReviewController extends Controller
         return redirect()->route('all.review');
     }
 
-    public function EditReview ($id) {
+    public function editReview ($id) {
         $review = Review::find($id);
         return view('admin.backend.review.edit_review', compact('review'));
     }
 
-    public function UpdateReview (Request $request) {
+    public function updateReview (Request $request) {
         $request->validate([
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
@@ -107,7 +107,7 @@ class ReviewController extends Controller
     
     }
 
-    public function DeleteReview ($id) {
+    public function deleteReview ($id) {
         $item = Review::find($id);
         $image = $item->image;
         // Delete image

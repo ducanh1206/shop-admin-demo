@@ -8,9 +8,9 @@
     @php
         $faq = App\Models\Faq::latest()->get(); 
     @endphp
-    <div class="lonyo-faq-wrap1">
+    
     @foreach ($faq as $item)
-        <div class="lonyo-faq-item item2 open" data-aos="fade-up" data-aos-duration="500">
+        <div class="lonyo-faq-item item2 open">
             <div class="lonyo-faq-header">
             <h4>{{ $item->question }}</h4>
             <div class="lonyo-active-icon">

@@ -22,7 +22,7 @@ class AdminController extends Controller
         return redirect('/login');
     }
 
-    public function AdminLogin(Request $request)
+    public function adminLogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
         
@@ -61,7 +61,7 @@ class AdminController extends Controller
         return back()->withErrors(['mailCode' => 'Invalid Verification Code!']);
     }
 
-    public function AdminProfile() {
+    public function adminProfile() {
         
         // Get the data of user logged in
         $id = Auth::user()->id;
