@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/Product/{id}', 'editProduct')->name('edit.product');
         Route::post('/update/Product', 'updateProduct')->name('update.product');
         Route::get('/delete/Product/{id}', 'deleteProduct')->name('delete.product');
+        // Route::get('/product/{id}', 'show')->name('product.detail');
     });
     // Faqs
     Route::controller(FaqController::class)->group(function() {
@@ -70,7 +71,3 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/test-cloudinary', function () {
-    $upload = Cloudinary::upload(public_path('test.jpg'));
-    return $upload->getSecurePath();
-});

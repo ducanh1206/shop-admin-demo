@@ -12,6 +12,7 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductController extends Controller
 {
+    
     public function allProduct () {
         $product = Product::latest()->get();
         return view('admin.backend.product.all_product', compact('product'));
@@ -32,6 +33,7 @@ class ProductController extends Controller
 
         if ($request->file('image')) {
             $image = $request->file('image');
+            
             $manager = new ImageManager(new Driver());
             // Create a unique name for image 
             $name_generate = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();

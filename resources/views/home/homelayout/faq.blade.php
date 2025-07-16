@@ -15,7 +15,7 @@
             <h4>{{ Str::limit($item->question, 140, '...') }}</h4>
         </div>
         <div class="lonyo-faq-body ">
-            <p>{{ $item->answer }}</p>
+            <p>{{ Str::limit($item->answer, 340, '...') }}</p>
         </div>
         </div>
     @endforeach

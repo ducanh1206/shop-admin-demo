@@ -6,4 +6,6 @@
   @include('home.homelayout.testimonial')
 
   @include('home.homelayout.faq')
+
+  {{-- @include('home.homelayout.product_detail') --}}
 @endsection

@@ -14,7 +14,7 @@
         <ul>
           <li class="menu-item-has-children">
             <a href="#">Demo</a>
-            <ul class="sub-menu">
+            {{-- <ul class="sub-menu">
               <li>
                 <a href="index.html">
                   Home 01
@@ -99,12 +99,12 @@
           </li>
           <li>
             <a href="contact-us.html">Contact</a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <div class="lonyo-mobile-menu-btn">
         @auth
-          <a class="lonyo-default-btn sm-size" href="{{ route('dashboard') }}" data-text="Dashboard"><span class="btn-wraper">Dashboard</span></a>
+          <a class="lonyo-default-btn sm-size" href="{{ route('all.product') }}" data-text="Dashboard"><span class="btn-wraper">Dashboard</span></a>
           @else
           <a class="lonyo-default-btn sm-size" href="{{ route('login') }}" data-text="admin-login"><span class="btn-wraper">Admin Login</span></a>
         @endauth
