@@ -62,9 +62,6 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
-        ],
-        "post-install-cmd": [
-            "@php artisan passport:keys"
         ]
     },
     "extra": {
