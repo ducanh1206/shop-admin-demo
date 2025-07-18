@@ -51,7 +51,6 @@ class AdminController extends Controller
         $request->validate(['mailCode'=>'required|numeric']);
         $mailCode = $request->get('mailCode');
         if ($request->mailCode == session('verification_code')) {
-            \Log::info('req', [$request]);
 
             Auth::loginUsingId(session('user_id'));
 

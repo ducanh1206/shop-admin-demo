@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('faqs', function (Blueprint $table) {
-            $table->string('question')->change();
-            $table->string('answer')->change();
+            $table->text('question')->change();
+            $table->text('answer')->change();
         });
     }
 };
