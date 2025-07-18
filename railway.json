@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "postdeploy": [
-      "php artisan migrate --force",
-      "php artisan passport:keys --force",
-      "php artisan config:cache"
-    ]
-  }
-}
