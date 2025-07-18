@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Faq;
+use App\Models\FAQs;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class FaqController extends Controller
 {
     public function allFaq () {
-        $faq = Faq::latest()->get();
+        $faq = FAQs::latest()->get();
         return view('admin.backend.faq.all_faq', compact('faq'));
     }
 
@@ -27,7 +27,7 @@ class FaqController extends Controller
         ]);
 
             // Create database
-            Faq::create([
+            FAQs::create([
                     'question' => $request->question,
                     'answer' => $request->answer,
                 ]);
@@ -37,7 +37,7 @@ class FaqController extends Controller
 
     public function editFaq ($id) {
         
-        $faq = Faq::find($id);
+        $faq = FAQs::find($id);
         return view('admin.backend.faq.edit_faq', compact('faq'));
     }
 
@@ -50,7 +50,7 @@ class FaqController extends Controller
 
         $p_id = $request->id;
 
-        Faq::find($p_id)->update([
+        FAQs::find($p_id)->update([
                     'question' => $request->question,
                     'answer' => $request->answer,
                 ]);
@@ -60,7 +60,7 @@ class FaqController extends Controller
     }
 
     public function deleteFaq ($id) {
-        $item = Faq::find($id);
+        $item = FAQs::find($id);
 
         $item->delete();
 

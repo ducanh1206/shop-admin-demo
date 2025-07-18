@@ -6,7 +6,7 @@
     
     <div class="lonyo-faq-shape"></div>
     @php
-        $faq = App\Models\Faq::latest()->get(); 
+        $faq = App\Models\FAQs::latest()->get(); 
     @endphp
     
     @foreach ($faq as $item)

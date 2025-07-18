@@ -4,22 +4,23 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Http\Resources\ProductResource;
+use App\Models\Review;
+use App\Http\Resources\ReviewResource;
 use Illuminate\Support\Facades\Validator;
 
-class ProductApiController extends Controller
+class ReviewApiController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::get();
-        if ($products->count() > 0) {
-            return ProductResource::collection($products);
+        $reviews = Review::all();
+        if ($reviews->count() > 0) {
+            return ReviewResource::collection($reviews);
         } else {
-            return response()->json(['message'=> 'No record available.'], 200);
+            return response()->json(['message' => 'No record available.'], 200);
         }
     }
 
@@ -29,10 +30,10 @@ class ProductApiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+            'position' => 'required|string|max:255',
+            'message' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -42,46 +43,47 @@ class ProductApiController extends Controller
             ], 422);
         }
 
+        $imageUrl = null;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $imagePath = $image->move(public_path('upload/products'), $imageName);
-            $imageUrl = asset('upload/products/' . $imageName); 
-        } else {
-            $imageUrl = null;
+            $image->move(public_path('upload/reviews'), $imageName);
+            $imageUrl = asset('upload/reviews/' . $imageName);
         }
 
-        $product = Product::create([
-            'title' => $request->title,
+        $review = Review::create([
             'name' => $request->name,
-            'price' => $request->price,
+            'position' => $request->position,
+            'message' => $request->message,
             'image' => $imageUrl,
         ]);
 
         return response()->json([
-            'message' => 'Product created successfully!',
-            'data' => new ProductResource($product),
+            'message' => 'Review created successfully!',
+            'data' => new ReviewResource($review),
         ], 200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(string $id)
     {
-        return new ProductResource($product);
+        $review = Review::findOrFail($id);
+        return new ReviewResource($review);
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, string $id)
     {
+        $review = Review::findOrFail($id);
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+            'position' => 'required|string|max:255',
+            'message' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -91,36 +93,37 @@ class ProductApiController extends Controller
             ], 422);
         }
 
+        $imageUrl = $review->image;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $imagePath = $image->move(public_path('upload/products'), $imageName);
-            $imageUrl = asset('upload/products/' . $imageName); 
-        } else {
-            $imageUrl = null;
+            $image->move(public_path('upload/reviews'), $imageName);
+            $imageUrl = asset('upload/reviews/' . $imageName);
         }
 
-        $product->update([
-            'title' => $request->title,
+        $review->update([
             'name' => $request->name,
-            'price' => $request->price,
+            'position' => $request->position,
+            'message' => $request->message,
             'image' => $imageUrl,
         ]);
 
         return response()->json([
-            'message' => 'Product Updated successfully!',
-            'data' => new ProductResource($product),
+            'message' => 'Review updated successfully!',
+            'data' => new ReviewResource($review),
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(string $id)
     {
-        $product->delete();
+        $review = Review::findOrFail($id);
+        $review->delete();
+
         return response()->json([
-            'message'=>'Product Deleted Successfully!',
-        ], 200); 
+            'message' => 'Review deleted successfully!',
+        ], 200);
     }
 }
