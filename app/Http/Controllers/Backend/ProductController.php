@@ -8,7 +8,7 @@ use App\Models\Product;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-
+use App\Http\Controller\Api\ProductApiController;
 
 class ProductController extends Controller
 {
