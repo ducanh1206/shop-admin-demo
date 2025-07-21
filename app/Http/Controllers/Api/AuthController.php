@@ -42,7 +42,7 @@ class AuthController extends Controller
             return response()->json([
                 'response_code' => 500,
                 'status'        => 'error',
-                'message'       => 'Registration failed',
+                'message'       => $e->getMessage(),
             ], 500);
         }
     }
@@ -92,7 +92,7 @@ class AuthController extends Controller
             return response()->json([
                 'response_code' => 500,
                 'status'        => 'error',
-                'message'       => 'Login failed',
+                'message'       => $e->getMessage(),
             ], 500);
         }
     }
@@ -117,7 +117,7 @@ class AuthController extends Controller
             return response()->json([
                 'response_code' => 500,
                 'status'        => 'error',
-                'message'       => 'Failed to fetch user list',
+                'message'       => $e->getMessage(),
             ], 500);
         }
     }
@@ -149,7 +149,7 @@ class AuthController extends Controller
             return response()->json([
                 'response_code' => 500,
                 'status'        => 'error',
-                'message'       => 'An error occurred during logout',
+                'message'       => $e->getMessage(),
             ], 500);
         }
     }
