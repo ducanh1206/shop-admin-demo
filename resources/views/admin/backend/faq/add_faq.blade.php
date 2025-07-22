@@ -3,7 +3,7 @@
 
 <div class="content">
 
-    <form action="{{ route('store.faq') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('store.faq') }}" method="POST" enctype="multipart/form-data" id="mainForm">
     @csrf
         <div class="card-body">
             
@@ -43,7 +43,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                             <br>
-                                            <button type="submit" class="btn btn-primary">Add</button>
+                                            <button type="submit" class="btn btn-primary" id="uploadBtn">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -56,4 +56,19 @@
     </form>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("mainForm");
+    const button = document.getElementById("uploadBtn");
+
+    if (!form || !button) return;
+
+    form.addEventListener("submit", function (e) {
+        // Disable button after validation passes
+        button.disabled = true;
+        button.innerHTML = `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...`;
+    });
+});
+</script>
 @endsection
