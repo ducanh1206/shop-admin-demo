@@ -92,7 +92,21 @@
         const button = document.getElementById("uploadBtn");
 
         form.addEventListener("submit", function (e) {
-            
+            const title = form.querySelector('input[name="title"]').value.trim();
+            const name = form.querySelector('input[name="name"]').value.trim();
+            const price = form.querySelector('input[name="price"]').value.trim();
+
+            let errors = [];
+
+            if (!title) errors.push("Title is required");
+            if (!name) errors.push("Name is required");
+            if (!price || isNaN(price)) errors.push("Price must be a number");
+
+            if (errors.length > 0) {
+                e.preventDefault(); // Stop submission
+                alert("Please fix the following:\n\n" + errors.join("\n"));
+                return false;
+            }
             // Disable button after validation passes
             button.disabled = true;
             button.innerHTML = `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...`;

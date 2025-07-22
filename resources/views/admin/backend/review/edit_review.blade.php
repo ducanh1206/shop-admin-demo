@@ -88,7 +88,21 @@
         const button = document.getElementById("uploadBtn");
 
         form.addEventListener("submit", function (e) {
-            
+            const name = form.querySelector('input[name="name"]').value.trim();
+            const position = form.querySelector('input[name="position"]').value.trim();
+            const message = form.querySelector('textarea[name="message"]').value.trim();
+
+            let errors = [];
+
+            if (!name) errors.push("Name is required");
+            if (!position) errors.push("Position is required");
+            if (!message) errors.push("Message is required");
+
+            if (errors.length > 0) {
+                e.preventDefault(); // Stop submission
+                alert("Please fix the following:\n\n" + errors.join("\n"));
+                return false;
+            }
             // Disable button after validation passes
             button.disabled = true;
             button.innerHTML = `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...`;
