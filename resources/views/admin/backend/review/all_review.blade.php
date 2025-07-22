@@ -43,7 +43,7 @@
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:40px; height:40px;"></td>
                                         <td>{{ Str::limit($item->message, 50, '...') }}</td>
                                         <td>
-                                            <a href="{{ route('edit.review', $item->id) }}" class="btn btn-success rounded-pill">Edit</a>
+                                            <a href="{{ route('edit.review', $item->id) }}" class="btn btn-primary rounded-pill">Edit</a>
                                             <a href="{{ route('delete.review', $item->id) }}" class="btn btn-danger rounded-pill">Delete</a>
                                         </td>
                                     </tr>
