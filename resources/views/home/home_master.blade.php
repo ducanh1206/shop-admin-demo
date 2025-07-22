@@ -40,17 +40,6 @@
 </head>
 
 <body>
-
-  <div class="preloader">
-    <div class="preloader-inner">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  <!-- End preloader -->
-
   <div class="progress-bar-container">
     <div class="progress-bar"></div>
   </div>

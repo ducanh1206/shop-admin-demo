@@ -56,7 +56,9 @@
                                             <div class="form-group mb-3 row">
                                                 <label class="form-label">Image</label>
                                                 <div class="col-lg-12 col-xl-12">
-                                                    <input class="form-control" type="file" name="image" value="{{ old('image') }}">
+                                                    <input class="form-control" type="file" name="image" id="imageInput">
+                                                    <br>
+                                                    <img id="previewImage" src="#" alt="Image Preview" class="img-fluid mt-2 border rounded" style="display: none; max-height: 150px;">
                                                 </div>
                                             </div>
                                             @error('image')
@@ -66,6 +68,27 @@
                                             <button type="submit" class="btn btn-primary">Upload</button>
                                         </div>
                                     </form>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            const imageInput = document.getElementById('imageInput');
+                                            const previewImage = document.getElementById('previewImage');
+
+                                            imageInput.addEventListener('change', function (event) {
+                                                const file = event.target.files[0];
+                                                if (file) {
+                                                    const reader = new FileReader();
+                                                    reader.onload = function (e) {
+                                                        previewImage.src = e.target.result;
+                                                        previewImage.style.display = 'block';
+                                                    };
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    previewImage.src = '#';
+                                                    previewImage.style.display = 'none';
+                                                }
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </div>
 

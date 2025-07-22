@@ -15,14 +15,14 @@
                     <div class="col">
                         <div class="product-item card shadow-sm border-0 p-3 h-100">
                             <div href="" title="{{ Str::limit($item->title, 50, '...')}}" class="text-decoration-none text-dark">
-                            <figure class="text-center mb-3" >
-                                <img src="{{ $item->image }}" class="tab-image img-fluid rounded" alt="Product Image" style="object-fit: contain;">
-                            </figure>
-                            <h5 class="fw-semibold text-center">{{ Str::limit($item->name, 30, '...')}}</h5>
+                            
+                            <img src="{{ $item->image }}" class="tab-image img-fluid rounded"  style="width: 100%; height: 180px; object-fit: contain;" alt="Product Image" style="object-fit: contain;">
+                            
+                            <h5 class="fw-semibold text-center">{{ Str::limit($item->name, 10, '...')}}</h5>
                             </div>
                             
                             <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="price fw-bold fs-5 text-center">{{ $item->price }} VND</span>
+                            <span class="price fw-bold fs-5 text-center">{{ Str::limit($item->price, 9, '...') }} VND</span>
                             <a href="#" class="btn btn-sm btn-outline-primary d-flex align-items-center">
                                 <iconify-icon icon="uil:shopping-cart" class="me-1">Add to Cart</iconify-icon> 
                             </a>

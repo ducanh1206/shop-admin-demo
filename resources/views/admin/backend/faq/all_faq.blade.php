@@ -14,8 +14,9 @@
             <div class="col-12">
                 <div class="card">
 
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">All FAQs Datatable</h5>
+                        <a href="{{ route('add.faq') }}" class="btn btn-primary rounded-pill me-4">+ Add FAQs</a>
                     </div>
 
                     <div class="card-body">
@@ -26,6 +27,7 @@
                                 <th>Id</th>
                                 <th>Question</th>
                                 <th>Answer</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,7 +39,7 @@
                                         <td>{{ Str::limit($item->question, 50, '...')}}</td>
                                         <td>{{ Str::limit($item->answer, 50, '...')}}</td>
                                         <td>
-                                            <a href="{{ route('edit.faq', $item->id) }}" class="btn btn-success rounded-pill">Edit</a>
+                                            <a href="{{ route('edit.faq', $item->id) }}" class="btn btn-primary rounded-pill">Edit</a>
                                             <a href="{{ route('delete.faq', $item->id) }}" class="btn btn-danger rounded-pill">Delete</a>
                                         </td>
                                     </tr>

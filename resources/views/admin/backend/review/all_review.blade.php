@@ -14,13 +14,14 @@
             <div class="col-12">
                 <div class="card">
 
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">All Review Datatable</h5>
+                        <a href="{{ route('add.review') }}" class="btn btn-primary rounded-pill me-4">+ Add Review</a>
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                            <table id="datatable" class="table table-bordered dt-responsive nowrap">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -37,8 +38,8 @@
 
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ Str::limit($item->name, 50, '...') }}</td>
-                                        <td>{{ Str::limit($item->position), 30, '...' }}</td>
+                                        <td>{{ Str::limit($item->name, 30, '...') }}</td>
+                                        <td>{{ Str::limit($item->position, 50, '...') }}</td>
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:40px; height:40px;"></td>
                                         <td>{{ Str::limit($item->message, 50, '...') }}</td>
                                         <td>

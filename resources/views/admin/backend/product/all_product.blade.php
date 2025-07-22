@@ -14,8 +14,9 @@
             <div class="col-12">
                 <div class="card">
 
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">All Product Datatable</h5>
+                        <a href="{{ route('add.product') }}" class="btn btn-primary rounded-pill me-4">+ Add Product</a>
                     </div>
 
                     <div class="card-body">
@@ -40,9 +41,9 @@
                                         <td>{{ Str::limit($item->title, 50, '...')}}</td>
                                         <td>{{ Str::limit($item->name, 50, '...')}}</td>
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:50px; height:40px;"></td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>{{ Str::limit($item->price, 30, '...') }}</td>
                                         <td>
-                                            <a href="{{ route('edit.product', $item->id) }}" class="btn btn-success rounded-pill">Edit</a>
+                                            <a href="{{ route('edit.product', $item->id) }}" class="btn btn-primary rounded-pill">Edit</a>
                                             <a href="{{ route('delete.product', $item->id) }}" class="btn btn-danger rounded-pill">Delete</a>
                                         </td>
                                     </tr>

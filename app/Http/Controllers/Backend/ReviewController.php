@@ -25,7 +25,7 @@ class ReviewController extends Controller
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
             'message' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,bmp,svg,heic,heif,avif|max:2048',
         ]);
 
         if ($request->file('image')) {
@@ -64,7 +64,7 @@ class ReviewController extends Controller
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
             'message' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,bmp,svg,heic,heif,avif|max:2048',
         ]);
 
         $rev_id = $request->id;
