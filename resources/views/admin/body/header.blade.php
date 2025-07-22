@@ -3,7 +3,7 @@
                     <div class="d-flex justify-content-between">
                         <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
                             <li>
-                                <button class="button-toggle-menu nav-link ps-0">
+                                <button class="button-toggle-menu nav-link ps-0" style="margin-left: 15px">
                                     <i data-feather="menu" class="noti-icon"></i>
                                 </button>
                             </li>

@@ -3,7 +3,7 @@
 
 <div class="content">
 
-    <form action="{{ route('update.product') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update.product') }}" method="POST" enctype="multipart/form-data" id="mainForm">
     @csrf
 
         <input type="hidden" name="id" value="{{ $product->id }}">
@@ -73,7 +73,7 @@
                                             @enderror
                                             
                                             <br>
-                                            <button type="submit" class="btn btn-primary">Upload</button>
+                                            <button type="submit" class="btn btn-primary" id="uploadBtn">Upload</button>
                                         </div>
  
                                 </div>
@@ -86,4 +86,17 @@
     </form>
 
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("mainForm");
+        const button = document.getElementById("uploadBtn");
+
+        form.addEventListener("submit", function (e) {
+            
+            // Disable button after validation passes
+            button.disabled = true;
+            button.innerHTML = `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...`;
+        });
+    });
+</script>
 @endsection
