@@ -1,3 +1,11 @@
+<style>
+    @media (max-width: 400px) {
+    .product-item .btn {
+        display: none !important;
+    }
+    }
+
+</style>
 <div class="bootstrap-tabs product-tabs">
               <div class="">
                 <h2 class="text-center mb-5 gradient-text">Products List</h2>
@@ -55,12 +63,12 @@
                             <h5 class="fw-semibold text-center">{{ Str::limit($item->name, 10, '...')}}</h5>
                             </div>
                             
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <span class="fw-bold text-truncate me-2" style="max-width: 60%;">
-                                    {{ Str::limit(number_format($item->price, 0, ',', '.'), 10, '...') }} VND
+                            <div class="text-center mt-2">
+                                <span class="fw-bold d-block mb-2">
+                                    {{ number_format($item->price, 0, ',', '.') }} VND
                                 </span>
-                                
-                                <a href="#" class="btn btn-sm btn-outline-primary d-flex align-items-center flex-shrink-0">
+
+                                <a href="#" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center justify-content-center">
                                     <iconify-icon icon="uil:shopping-cart" class="me-1"></iconify-icon> 
                                     Add to Cart
                                 </a>
