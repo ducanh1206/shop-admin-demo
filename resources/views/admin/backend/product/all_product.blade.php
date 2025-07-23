@@ -41,7 +41,8 @@
                                         <td>{{ Str::limit($item->title, 50, '...')}}</td>
                                         <td>{{ Str::limit($item->name, 50, '...')}}</td>
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:50px; height:40px;"></td>
-                                        <td>{{ Str::limit($item->price, 30, '...') }}</td>
+                                        <td>{{ Str::limit(number_format($item->price, 0, ',', '.')) }} VND
+</td>
                                         <td>
                                             <a href="{{ route('edit.product', $item->id) }}" class="btn btn-primary rounded-pill">Edit</a>
                                             <a href="{{ route('delete.product', $item->id) }}" class="btn btn-danger rounded-pill">Delete</a>

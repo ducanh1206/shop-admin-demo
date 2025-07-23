@@ -1,8 +1,12 @@
 <style>
-    @media (max-width: 400px) {
-    .product-item .btn {
-        display: none !important;
+    .product-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 12px;
     }
+
+    .product-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
 </style>
@@ -55,7 +59,7 @@
 
                     @foreach ($product as $item)
                     <div class="col">
-                        <div class="product-item card shadow-sm border-0 p-3 h-100">
+                        <div class="product-item card  border-0 p-3">
                             <div href="" title="{{ Str::limit($item->title, 50, '...')}}" class="text-decoration-none text-dark">
                             
                             <img src="{{ $item->image }}" class="card-img-top img-fluid" style="max-width:100%; object-fit: cover;" alt="Product Image">
