@@ -1,6 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    .responsive-container {
+    max-width: 50%;
+    }
+
+    @media (max-width: 992px) { /* Tablet */
+    .responsive-container {
+        max-width: 70%;
+    }
+    }
+
+    @media (max-width: 768px) { /* Mobile landscape */
+    .responsive-container {
+        max-width: 90%;
+    }
+    }
+
+    @media (max-width: 576px) { /* Mobile portrait */
+    .responsive-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    }
+
+</style>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,9 +52,8 @@
     <body class="bg-white">
 
         <div class="account-page">
-            <div class="container-fluid p-0">
-
-                        <div class="row" style="max-width: 50%; margin: 0 auto;">
+            <div class="container-fluid p-0">  
+                        <div class="row responsive-container" style="margin: 0 auto;">
                             <div class="col-md-7 mx-auto">
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
                                     <div class="mb-4 p-0 text-center">
@@ -79,11 +104,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-
-                    
+                            </div>                    
+                </div>
             </div>
         </div>
         
