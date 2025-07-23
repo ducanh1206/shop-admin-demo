@@ -3,6 +3,7 @@
                 <h2 class="text-center mb-5 gradient-text">Products List</h2>
 
               </div>
+
               <div class="d-flex justify-content-end pe-5 mb-3">
                       <form method="GET" id="sortForm">
                         <select name="sort" class="form-select" onchange="document.getElementById('sortForm').submit()">
@@ -14,11 +15,13 @@
                         </select>
                       </form>
                     </div>
-              <div class="tab-content" id="nav-tabContent" style="position: relative">
+              <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
 
                   <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4" style="padding-left: 80px; padding-right: 80px;">
-    
+                    
+                    
+                    
                     @php
                       $query = App\Models\Product::query();
 
@@ -53,7 +56,14 @@
                             </div>
                             
                             <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="fw-bold">{{ Str::limit(number_format($item->price, 0, ',', '.'),10, '...') }} VND</span>
+                                <span class="fw-bold text-truncate me-2" style="max-width: 60%;">
+                                    {{ Str::limit(number_format($item->price, 0, ',', '.'), 10, '...') }} VND
+                                </span>
+                                
+                                <a href="#" class="btn btn-sm btn-outline-primary d-flex align-items-center flex-shrink-0">
+                                    <iconify-icon icon="uil:shopping-cart" class="me-1"></iconify-icon> 
+                                    Add to Cart
+                                </a>
                             </div>
                         </div>
                     </div>
