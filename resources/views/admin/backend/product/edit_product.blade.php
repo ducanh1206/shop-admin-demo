@@ -73,7 +73,7 @@
                                             @enderror
                                             
                                             <br>
-                                            <button type="submit" class="btn btn-primary" id="uploadBtn">Upload</button>
+                                            <button type="submit" class="btn btn-primary" id="uploadBtn">Edit</button>
                                         </div>
  
                                 </div>

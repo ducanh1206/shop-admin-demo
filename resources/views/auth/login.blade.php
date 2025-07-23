@@ -27,9 +27,8 @@
 
         <div class="account-page">
             <div class="container-fluid p-0">
-                <div class="row g-0 min-vh-100 d-flex align-items-center justify-content-center">
-                    <div class="col-xl-5">
-                        <div class="row">
+
+                        <div class="row" style="max-width: 50%; margin: 0 auto;">
                             <div class="col-md-7 mx-auto">
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
                                     <div class="mb-4 p-0 text-center">
@@ -82,10 +81,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
 
                     
-                </div>
             </div>
         </div>
         
