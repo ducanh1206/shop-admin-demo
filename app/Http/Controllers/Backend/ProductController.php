@@ -29,7 +29,6 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0|max:1000000000',
             'image' => 'nullable|mimetypes:image/avif,image/jpeg,image/png,image/gif,image/webp,image/bmp,image/svg+xml,image/heic,image/heif|max:2048',
-
         ]);
 
         if ($request->file('image')) {
@@ -69,7 +68,6 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0|max:1000000000',
             'image' => 'nullable|mimetypes:image/avif,image/jpeg,image/png,image/gif,image/webp,image/bmp,image/svg+xml,image/heic,image/heif|max:2048',
-
         ]);
 
         $p_id = $request->id;
