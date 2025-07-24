@@ -1,9 +1,9 @@
 <style>
   .lonyo-t-wrap {
-    height: 340px;
-    background-color: #f9f9f9;
+    height: 240px;
+
     border-radius: 12px;
-    padding: 20px;
+
     display: flex;
     flex-direction: column;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -26,7 +26,7 @@
   }
 
   .lonyo-t-text p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     color: #333;
     display: -webkit-box;
@@ -53,7 +53,7 @@
 
   .lonyo-t-author-data p {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -62,8 +62,8 @@
   }
 
   .lonyo-t-author-data span {
-    font-size: 12px;
-    color: #666;
+    font-size: 14px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -72,51 +72,45 @@
   }
 </style>
 
-<div class="lonyo-section-padding position-relative overflow-hidden">
-
-    @include('home.homelayout.product')
-
+<div class="overflow-hidden" style="padding: 10%; background-color: rgb(248, 249, 250);" >
 
     <div class="container">
       <div class="lonyo-section-title">
-        <div class="mt-5">
           <div class="text-center">
             <h2>User Reviews</h2>
           </div>
-          
-        </div>
       </div>
-    </div>
-
-    <div class="lonyo-testimonial-slider-init">
+      
+      <div class="lonyo-faq-shape"></div>
 
       @php
         $review = App\Models\Review::latest()->get();   
       @endphp
 
       @foreach ($review as $item)
-        <div class="lonyo-t-wrap wrap2 light-bg">
-          <div class="lonyo-t-ratting mb-2">
+        <div class="lonyo-t-wrap wrap2 bg-white">
+          <div class="lonyo-t-author mb-4" >
+            <div class="lonyo-t-author-thumb">
+              <img src="{{ $item->image }}" alt="" style="border: 2px solid #ccc; border-radius: 50%; object-fit: cover; max-width: 80%; height: 100%;">
+            </div>
+            <div class="lonyo-t-author-data">
+              <p style="text-transform: capitalize; color: black;">{{ Str::limit($item->name, '20', '...') }}</p>
+              <span style="text-transform: capitalize; color: gray">{{ Str::limit($item->position, '20', '...') }}</span>
+            </div>
+          </div>
+          <div class="mb-3">
             <img src="{{asset('frontend/assets/images/shape/star.svg')}}" alt="">
           </div>
           <div class="lonyo-t-text">
-            <p style="word-break: break-word;">{{ Str::limit($item->message, '150', '...') }}</p>
+            <p style="word-break: break-word;">{{ Str::limit($item->message, '200', '...') }}</p>
           </div>
-          <div class="lonyo-t-author">
-            <div class="lonyo-t-author-thumb">
-              <img src="{{ $item->image }}" alt="">
-            </div>
-            <div class="lonyo-t-author-data">
-              <p>{{ Str::limit($item->name, '15', '...') }}</p>
-              <span>{{ Str::limit($item->position, '15', '...') }}</span>
-            </div>
-          </div>
+          
         </div>
+
+
       @endforeach
+      </div>
+
 
     </div>
-    
-    <div class="lonyo-t-overlay2">
-      <img src="{{asset('frontend/assets/images/v2/overlay.png')}}" alt="">
-    </div>
-  </div>
+

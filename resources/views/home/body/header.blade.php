@@ -1,4 +1,4 @@
-<header class="site-header lonyo-header-section light-bg" id="sticky-menu">
+<header class="site-header lonyo-header-section" style="background-color: rgb(248, 249, 250)" id="sticky-menu">
     <div class="container">
       <div class="row gx-3 align-items-center justify-content-between">
         <div class="col-8 col-sm-auto ">
@@ -8,6 +8,99 @@
             </a>
           </div>
         </div>   
+
+        <div class="col">
+          <div class="lonyo-main-menu-item">
+            <nav class="main-menu menu-style1 d-none d-lg-block menu-left">
+              <ul>
+                <li class="menu-item-has-children">
+                  <a href="#">Home</a>
+                  {{-- <ul class="sub-menu">
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                  </ul> --}}
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Product</a>
+                  {{-- <ul class="sub-menu">
+                    <li>
+                      <a href="">
+                        Home 01
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        Home 02
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        Home 03
+                      </a>
+                    </li>
+                  </ul> --}}
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">About</a>
+                  {{-- <ul class="sub-menu">
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                  </ul> --}}
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Blog</a>
+                  {{-- <ul class="sub-menu">
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        #
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        Home 03
+                      </a>
+                    </li>
+                  </ul> --}}
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
         <div class="col-auto d-flex align-items-center">
           <div class="lonyo-header-info-wraper2" style="margin: 5%">
             

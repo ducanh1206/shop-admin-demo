@@ -38,7 +38,7 @@
 
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td>{{ Str::limit($item->name, 30, '...') }}</td>
+                                        <td>{{ Str::limit($item->name, 20, '...') }}</td>
                                         <td>{{ Str::limit($item->position, 50, '...') }}</td>
                                         <td><img src="{{ asset($item->image) }}" alt="" style="width:40px; height:40px;"></td>
                                         <td>{{ Str::limit($item->message, 50, '...') }}</td>

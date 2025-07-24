@@ -10,8 +10,6 @@
   <link rel="shortcut icon" href="{{ asset('upload/shopicon.png') }}" type="image/x-icon">
   <link rel="icon" href="{{ asset('upload/shopicon.png') }}" type="image/x-icon">
 
-  
-
 
   <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css') }}">
@@ -66,18 +64,17 @@
  
   @include('home.body.header')
 
- 
-
   @yield('home')
 
 
+  @include('home.body.footer')
   <!-- scripts -->
   <script src="{{ asset('frontend/assets/js/jquery-3.7.1.min.js') }}"></script>
 
   <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('frontend/assets/js/menu/menu.js') }}"></script>
   <script src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
-  <script src="{{ asset('frontend/assets/js/slick.js') }}"></script>
+  {{-- <script src="{{ asset('frontend/assets/js/slick.js') }}"></script> --}}
   <script src="{{ asset('frontend/assets/js/pricing.min.js') }}"></script>
   <script src="{{ asset('frontend/assets/js/countdown.js') }}"></script>
   <script src="{{ asset('frontend/assets/js/skillbar.js') }}"></script>
