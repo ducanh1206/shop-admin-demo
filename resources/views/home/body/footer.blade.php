@@ -46,7 +46,7 @@
               <h4>Menu</h4>
               <div class="lonyo-footer-menu-wrap">
                 <div class="lonyo-footer-menu1">
-                  <ul>
+                  {{-- <ul>
                     <li>
                       <a href="">Home</a>
                     </li>
@@ -62,7 +62,7 @@
                     <li>
                       <a href="">Contact us</a>
                     </li>
-                  </ul>
+                  </ul> --}}
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
           <div class="col-xxl-3 col-xl-4 col-md-6">
             <div class="lonyo-footer-menu">
               <h4>Utility pages</h4>
-              <ul>
+              {{-- <ul>
                 <li>
                   <a href="sign-up.html">Sign up</a>
                 </li>
@@ -86,15 +86,15 @@
                 <li>
                   <a href="error-404.html">404 Not found</a>
                 </li>
-              </ul>
+              </ul> --}}
             </div>
           </div>
           <div class="col-xxl-3 col-xl-4 col-md-6">
             <div class="lonyo-footer-menu">
-              <h4>Join our newsletter</h4>
+              <h4>Support Us</h4>
               <div class="lonyo-subscription-field2">
                 <form action="#">
-                  <input type="email" placeholder="Enter your e-mail">
+                  <input type="text" placeholder="Enter your comment">
                   <button class="lonyo-default-btn subscrib-btn d-block" type="submit">Subscribe</button>
                 </form>
               </div>
@@ -104,7 +104,7 @@
         <div class="lonyo-footer-shape"></div>
       </div>
       <div class="lonyo-footer-bottom-text">
-        <p>© Copyright <span id="current-year"></span>, All Rights Reserved by Mthemeus</p>
+        <p>© <span id="current-year"></span> - Made with ❤️</span></p>
       </div>
     </div>
   </footer>
