@@ -11,10 +11,10 @@
         @foreach ($faq as $item)
             <div class="lonyo-faq-item item2 open">
                 <div class="lonyo-faq-header">
-                <h4 style="color: rgb(207, 172, 129)">{{ Str::limit($item->question, 140, '...') }}</h4>
+                <h4 style="color: rgb(207, 172, 129); line-height:1.6; text-align: justify">{{ Str::limit($item->question, 140, '...') }}</h4>
             </div>
             <div class="lonyo-faq-body ">
-                <p style="color: black">{{ Str::limit($item->answer, 340, '...') }}</p>
+                <p style="color: black; line-height:1.6; text-align: justify">{{ Str::limit($item->answer, 340, '...') }}</p>
             </div>
             </div>
         @endforeach
