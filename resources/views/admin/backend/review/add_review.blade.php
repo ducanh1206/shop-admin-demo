@@ -54,7 +54,7 @@
                                     <div class="form-group mb-3 row">
                                         <label class="form-label">Image</label>
                                         <div class="col-lg-12 col-xl-12">
-                                            <input class="form-control" type="file" name="image" id="imageInput">
+                                            <input class="form-control" type="file" name="image" id="imageInput" accept="image/avif,image/jpeg,image/png,image/gif,image/webp,image/bmp,image/svg+xml,image/heic,image/heif">
                                             <br>
                                             <img id="previewImage" src="#" alt="Image Preview" class="img-fluid mt-2 border rounded" style="display: none; max-height: 150px;">
                                         </div>
@@ -130,6 +130,15 @@ document.addEventListener("DOMContentLoaded", function () {
         button.innerHTML = `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...`;
     });
 });
+
+
+document.getElementById('imageInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file && !file.type.startsWith('image/')) {
+            alert('Upload file must be an image');
+            e.target.value = ''; // Reset input
+        }
+    });
 </script>
 @endsection
 
